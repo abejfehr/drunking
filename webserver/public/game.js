@@ -20,6 +20,36 @@ const DEFAULT_PLAYER_DATA = [
     picture: 'terence.png',
     score: 0,
   },
+  {
+    name: 'Sam',
+    picture: 'sam.png',
+    score: 0,
+  },
+  {
+    name: 'Phil',
+    picture: 'phil.png',
+    score: 0,
+  },
+  {
+    name: 'Will',
+    picture: 'will.png',
+    score: 0,
+  },
+  {
+    name: 'Hrishi',
+    picture: 'hrishi.png',
+    score: 0,
+  },
+  {
+    name: 'Aiden',
+    picture: 'aiden.png',
+    score: 0,
+  },
+  {
+    name: 'Cody',
+    picture: 'cody.png',
+    score: 0,
+  },
 ];
 const messages = {
   hammered: [
@@ -38,8 +68,8 @@ const messages = {
     "It looks like you have a lot on your mind, maybe you should drink about it.",
     "You look like I need a drink",
   ],
-  coolingdown: [
-
+  cooldown: [
+    "Are you drinking water?",
   ],
 }
 
@@ -211,12 +241,13 @@ class DrunkingGame {
     // Update the score in the listeners
     for (let i = 0; i < this.scoreLabels.length; ++i) {
       if (i == this.whoseTurnIsIt) {
+        // Animate the score
         this.transitionScore(newScore, this.scoreLabels.item(i).querySelector('figure'));
+
+        // Show the user a motivational message
+        this.handleMessage(newScore, Number(this.scoreLabels.item(i).querySelector('figure').innerText));
       }
     }
-
-    // Show the user a motivational message
-    this.handleMessage(newScore, Number(label.innerText));
 
     this.save();
   }
@@ -263,29 +294,30 @@ class DrunkingGame {
 
   handleMessage (newScore, oldScore) {
     if (newScore > 1000) {
-      showMessage(messages.hammered.pickRandom());
+      this.showMessage(messages.hammered.pickRandom());
       return;
     }
     if (newScore > oldScore) {
       if (newScore < 600) {
-        showMessage(messages.warmingup.pickRandom());
+        this.showMessage(messages.warmingup.pickRandom());
         return;
       } else {
-        showMessage(messages.drunking.pickRandom());
+        this.showMessage(messages.drunking.pickRandom());
         return;
       }
     }
     if (oldScore > newScore) {
-      showMessage(messages.cooldown.pickRandom());
+      this.showMessage(messages.cooldown.pickRandom());
       return;
     }
   }
 
   showMessage (message) {
     var box = document.querySelector('aside');
-    box.classList.remove('show');
-    box.innerText = message;
-    box.classList.add('show');
+    var newBox = box.cloneNode(true);
+    newBox.classList.add('show');
+    newBox.innerText = message;
+    box.parentNode.replaceChild(newBox, box);
   }
 }
 

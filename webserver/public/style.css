@@ -106,7 +106,7 @@ aside {
   top: 80%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 100px;
+  padding: 30px;
   border: 1px solid white;
   border-radius: 25px;
   opacity: 0;

@@ -16,6 +16,11 @@ app.use(express.static('public'))
   // io.emit('score', score);
 // });
 
+// For testing
+// setInterval(function () {
+//   io.emit('score', Math.random() * 1024);
+// }, 3000);
+
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });

@@ -1,0 +1,134 @@
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  font-family: 'Schoolbell', cursive;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+#small {
+  width: 317px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#small > div {
+  height: 100%;
+  width: 100%;
+  padding-right: 17px;
+  overflow-y: scroll;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  font-size: 60px;
+}
+
+main {
+  display: flex;
+}
+
+#big {
+  width: calc(100% - 317px);
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+#big canvas {
+  flex: 1;
+}
+
+img {
+  height: 130px;
+  margin: 25px;
+  filter: drop-shadow(3px 3px 0 white)
+          drop-shadow(-3px -3px 0 white)
+          drop-shadow(-3px 3px 0 white)
+          drop-shadow(3px -3px 0 white);
+}
+
+img:hover {
+  transform: scale(1.3) rotate(9deg);
+}
+
+@keyframes beSelected {
+  0% {
+    filter: drop-shadow(3px 3px 0 white)
+            drop-shadow(-3px -3px 0 white)
+            drop-shadow(-3px 3px 0 white)
+            drop-shadow(3px -3px 0 white);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(3px 3px 0 yellow)
+            drop-shadow(-3px -3px 0 yellow)
+            drop-shadow(-3px 3px 0 yellow)
+            drop-shadow(3px -3px 0 yellow);
+            transform: scale(1.1);
+  }
+  100% {
+    filter: drop-shadow(3px 3px 0 white)
+            drop-shadow(-3px -3px 0 white)
+            drop-shadow(-3px 3px 0 white)
+            drop-shadow(3px -3px 0 white);
+            transform: scale(1);
+  }
+}
+
+li.selected img {
+  animation: beSelected;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+aside {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 100px;
+  border: 1px solid white;
+  border-radius: 25px;
+  opacity: 0;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.show {
+  animation: fadeOut;
+  animation-duration: 4s;
+  animation-play-state: running;
+}

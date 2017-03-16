@@ -16,6 +16,8 @@ const int CALIBRATION_FLOOR = 500;
 
 void setup() 
 {      
+  Serial.begin(9600);
+  
   pinMode(BUTTON_PIN, INPUT);
   
   for (int i = FIRST_LED; i <= LAST_LED; i++) 
@@ -70,6 +72,10 @@ void loop()
 void lightPins()
 {
   int alcohol_level = float(max_level - min_level) / (1023 - min_level) * 10;
+  float alcohol_byte = float(max_level - min_level) / (1023 - min_level);
+  unsigned char alcohol_char = alcohol_byte * 255;
+  //Serial.print("level: "); Serial.print(alcohol_level); Serial.print("\tbyte: "); Serial.println(alcohol_char);
+  Serial.write(alcohol_char);
   
   for (int i = FIRST_LED; i < FIRST_LED + alcohol_level; i++) 
   {
@@ -135,7 +141,8 @@ void calibratingAnimation()
   ++t;
 }
 
-void clearAllLEDs() {
+void clearAllLEDs() 
+{
   for (int i = FIRST_LED; i <= LAST_LED; ++i) {
     digitalWrite(i, LOW);
   }

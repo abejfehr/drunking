@@ -6,15 +6,18 @@ var CerealPort = require("serialport");
 var express = require('express');
 
 // Serve static files
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 // Create new serialport pointer
-// var cereal = new CerealPort("/" , { baudrate : 9600 });
+var cereal = new CerealPort("COM3" , { baudrate : 9600 });
 
 // Add data read event listener
-// cereal.on("data", function (score) {
-  // io.emit('score', score);
-// });
+cereal.on("data", function (score) {
+  io.emit('score', score[0] * 4);
+
+  // Flush the thing
+  cereal.flush();
+});
 
 // For testing
 // setInterval(function () {

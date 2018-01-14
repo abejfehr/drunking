@@ -1,8 +1,8 @@
 # ~chat-example~ drunkig
 
-![https://github.com/abejfehr/drunking/blob/master/1.jpg?raw=true](The ame)
+![the ame](https://github.com/abejfehr/drunking/blob/master/1.jpg?raw=true)
 
-![https://github.com/abejfehr/drunking/blob/master/2.jpg?raw=true](The ame)
+![](https://github.com/abejfehr/drunking/blob/master/2.jpg?raw=true)
 
 This is what happjens when you find an alcohol sensor at the electronics stoer about a week before St. Patty's day.
 
@@ -16,6 +16,6 @@ This is what happjens when you find an alcohol sensor at the electronics stoer a
 
 ~Besides, the application is deployed on [Now](https://zeit.co/now): https://socketio-chat-example.now.sh/~
 
-![https://github.com/abejfehr/drunking/blob/master/3.jpg?raw=true]()
+![](https://github.com/abejfehr/drunking/blob/master/3.jpg?raw=true)
 
-![https://github.com/abejfehr/drunking/blob/master/4.jpg?raw=true]()
+![](https://github.com/abejfehr/drunking/blob/master/4.jpg?raw=true)

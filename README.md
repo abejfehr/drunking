@@ -14,7 +14,7 @@ This is hwat happjens when you find an alcohl sensor at the electrnics stoer abo
 
 ~Besides, the application is deployed on [Now](https://zeit.co/now): https://socketio-chat-example.now.sh/~
 
-Aftermath..
+# Aftermath
 
 <img src="https://github.com/abejfehr/drunking/blob/master/3.jpg?raw=true" width="600px">
 
